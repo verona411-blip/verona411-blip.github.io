@@ -27,3 +27,24 @@ function updateCountdown(){
 }
 updateCountdown();
 setInterval(updateCountdown,1000);
+
+/* =========================================================
+   SCROLL CUE
+   Hide after the visitor begins scrolling
+   ========================================================= */
+
+const scrollCue = document.querySelector('.scroll-cue');
+
+if (scrollCue) {
+
+  window.addEventListener('scroll', () => {
+
+    if (window.scrollY > 120) {
+      scrollCue.classList.add('hidden');
+    } else {
+      scrollCue.classList.remove('hidden');
+    }
+
+  });
+
+}
