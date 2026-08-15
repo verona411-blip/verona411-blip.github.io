@@ -408,3 +408,108 @@ footer{
   .story-image img{height:400px}
   .hero h1{font-size:3.7rem}
 }
+/* =========================================================
+   NEW ORLEANS JAZZ INTERLUDE
+   ========================================================= */
+
+.jazz-interlude{
+  padding:90px 22px;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(216,181,111,.10),transparent 25%),
+    linear-gradient(135deg,#4f1c2c,#7b3047 55%,#3c1825);
+  color:white;
+  text-align:center;
+}
+
+.jazz-inner{
+  max-width:960px;
+  margin:0 auto;
+}
+
+.jazz-interlude .small{
+  color:#edcf8e;
+  text-transform:uppercase;
+  letter-spacing:.28em;
+  font-size:.72rem;
+  font-weight:bold;
+}
+
+.jazz-interlude h2{
+  font-size:clamp(2.5rem,5vw,4.2rem);
+  font-weight:500;
+  margin:.2em 0;
+}
+
+.jazz-intro{
+  max-width:670px;
+  margin:0 auto 42px;
+  color:#f2e4e6;
+  font-style:italic;
+  font-size:1.08rem;
+}
+
+.jazz-player{
+  display:grid;
+  gap:18px;
+}
+
+.jazz-track{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:18px 24px;
+  align-items:center;
+  padding:24px 28px;
+  text-align:left;
+  border:1px solid rgba(216,181,111,.55);
+  background:rgba(255,255,255,.055);
+}
+
+.track-era{
+  width:66px;
+  height:66px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--champagne);
+  transform:rotate(45deg);
+  color:#f2d99d;
+  font-size:.8rem;
+}
+
+.track-era::first-line{
+  transform:rotate(-45deg);
+}
+
+.track-info h3{
+  margin:0;
+  color:#f5dc9f;
+  font-size:1.4rem;
+}
+
+.track-info p{
+  margin:.25rem 0 0;
+  color:#efe3e5;
+}
+
+.jazz-track audio{
+  grid-column:1 / -1;
+  width:100%;
+  margin-top:4px;
+}
+
+.jazz-credit{
+  margin-top:28px;
+  font-size:.78rem;
+  color:#d8c8cb;
+  letter-spacing:.04em;
+}
+
+@media(max-width:650px){
+  .jazz-track{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .track-era{
+    margin:0 auto;
+  }
+}
