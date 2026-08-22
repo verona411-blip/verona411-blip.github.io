@@ -636,3 +636,168 @@ footer{
     margin:0 auto;
   }
 }
+/* =========================================================
+   EMBEDDED WEDDING RSVP
+   ========================================================= */
+
+.rsvp-form-section{
+  padding:110px 22px;
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(216,181,111,.12),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      #702840,
+      #3a1824
+    );
+
+  color:white;
+}
+
+
+.rsvp-heading{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 45px;
+}
+
+
+.rsvp-heading h2{
+  font-size:clamp(3rem,6vw,5rem);
+  font-weight:500;
+  margin:.15em 0;
+}
+
+
+.rsvp-intro{
+  max-width:650px;
+  margin:0 auto;
+
+  color:#f3e5e7;
+  font-size:1.08rem;
+}
+
+
+.rsvp-form-container{
+  max-width:850px;
+
+  margin:0 auto;
+
+  padding:14px;
+
+  background:#fffdf9;
+
+  border:1px solid
+    rgba(216,181,111,.75);
+
+  box-shadow:
+    0 30px 70px
+    rgba(20,5,12,.35);
+
+  position:relative;
+}
+
+
+/* Art Deco inner border */
+
+.rsvp-form-container:before{
+  content:"";
+
+  position:absolute;
+
+  inset:7px;
+
+  border:1px solid
+    rgba(216,181,111,.35);
+
+  pointer-events:none;
+}
+
+
+.rsvp-form{
+  display:block;
+
+  width:100%;
+
+  /*
+     Taller than the original 480px iframe
+     so guests don't feel trapped inside
+     a tiny scrolling box.
+  */
+
+  height:1050px;
+
+  border:0;
+
+  background:white;
+}
+
+
+/* Closing note */
+
+.rsvp-footer-note{
+  text-align:center;
+
+  max-width:600px;
+
+  margin:42px auto 0;
+
+  color:#eadde0;
+
+  font-style:italic;
+}
+
+
+.rsvp-ornament{
+  width:70px;
+  height:70px;
+
+  margin:0 auto 25px;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid
+    rgba(216,181,111,.7);
+
+  color:#f0d18d;
+
+  transform:rotate(45deg);
+
+  font-size:.75rem;
+  font-style:normal;
+  letter-spacing:.08em;
+}
+
+
+.rsvp-ornament::first-line{
+  transform:rotate(-45deg);
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+
+  .rsvp-form-section{
+    padding:80px 12px;
+  }
+
+  .rsvp-form-container{
+    padding:7px;
+  }
+
+  .rsvp-form{
+    /*
+       Microsoft Forms needs more vertical
+       room on narrow phone screens.
+    */
+
+    height:1250px;
+  }
+
+}
