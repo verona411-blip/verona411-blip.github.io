@@ -801,3 +801,359 @@ footer{
   }
 
 }
+/* =========================================================
+   =========================================================
+                 WEDDING ATTIRE SECTION
+   =========================================================
+   ========================================================= */
+
+
+/* Prevent the attire section from affecting or
+   overflowing the rest of the website */
+
+.attire-section,
+.attire-section *,
+.attire-section *::before,
+.attire-section *::after {
+    box-sizing: border-box;
+}
+
+
+/* MAIN SECTION */
+
+.attire-section {
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+    padding: 70px 30px;
+
+    overflow-x: hidden;
+
+    background-color: #f5efe5;
+    color: #281d18;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.attire-section .attire-header {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto 42px;
+
+    text-align: center;
+}
+
+
+.attire-section .attire-eyebrow {
+    margin: 0 0 12px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+
+    color: #8b6b3f;
+}
+
+
+.attire-section .attire-title {
+    margin: 0 0 20px;
+
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.05;
+
+    color: #281d18;
+}
+
+
+.attire-section .attire-intro {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 1.08rem;
+    line-height: 1.75;
+
+    color: #49372e;
+}
+
+
+/* =========================================================
+   MAIN ATTIRE CONTENT
+   ========================================================= */
+
+.attire-section .attire-content {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background: #fffaf2;
+
+    border: 1px solid rgba(92, 65, 42, 0.18);
+
+    box-shadow:
+        0 18px 45px rgba(50, 35, 25, 0.08);
+}
+
+
+/* =========================================================
+   ATTIRE IMAGE
+   ========================================================= */
+
+.attire-section .attire-image-wrap {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background-color: #ded4c7;
+}
+
+
+.attire-section .attire-photo {
+    display: block;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+    max-height: none;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: contain;
+
+    border: 0;
+}
+
+
+/* Small label over photo */
+
+.attire-section .attire-image-label {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    max-width: calc(100% - 40px);
+
+    padding: 10px 15px;
+
+    background: rgba(30, 21, 16, 0.88);
+    color: #fff7e9;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.attire-section .attire-description {
+    width: 100%;
+
+    padding: 30px 40px;
+
+    text-align: center;
+}
+
+
+.attire-section .attire-description p {
+    width: 100%;
+    max-width: 720px;
+
+    margin: 0 auto 14px;
+
+    font-size: 1rem;
+    line-height: 1.75;
+
+    color: #49372e;
+}
+
+
+.attire-section .attire-description p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   BOTTOM NOTE
+   ========================================================= */
+
+.attire-section .attire-note {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 45px auto 0;
+    padding: 22px 18px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: center;
+
+    border-top: 1px solid #a68453;
+    border-bottom: 1px solid #a68453;
+}
+
+
+.attire-section .attire-note p {
+    margin: 0;
+
+    max-width: 700px;
+
+    font-size: 0.96rem;
+    line-height: 1.65;
+
+    color: #49372e;
+}
+
+
+.attire-section .attire-star {
+    flex: 0 0 auto;
+
+    color: #a68453;
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .attire-section {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 55px 22px;
+    }
+
+    .attire-section .attire-content {
+        max-width: 760px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .attire-section {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+
+        padding: 45px 16px;
+
+        overflow-x: hidden;
+    }
+
+
+    .attire-section .attire-header {
+        margin-bottom: 30px;
+    }
+
+
+    .attire-section .attire-eyebrow {
+        font-size: 0.64rem;
+
+        letter-spacing: 0.14em;
+
+        line-height: 1.5;
+    }
+
+
+    .attire-section .attire-title {
+        font-size: 2.65rem;
+    }
+
+
+    .attire-section .attire-intro {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+
+
+    .attire-section .attire-description {
+        padding: 24px 20px;
+    }
+
+
+    .attire-section .attire-description p {
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+
+
+    .attire-section .attire-image-label {
+        left: 12px;
+        bottom: 12px;
+
+        max-width: calc(100% - 24px);
+
+        padding: 8px 10px;
+
+        font-size: 0.58rem;
+        letter-spacing: 0.09em;
+    }
+
+
+    .attire-section .attire-note {
+        margin-top: 35px;
+
+        padding: 18px 10px;
+
+        gap: 8px;
+    }
+
+
+    .attire-section .attire-note p {
+        font-size: 0.86rem;
+        line-height: 1.55;
+    }
+
+
+    .attire-section .attire-star {
+        font-size: 0.9rem;
+    }
+
+}
