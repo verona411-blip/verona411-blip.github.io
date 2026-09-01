@@ -6,54 +6,69 @@
 
 /* =========================================================
    NAVIGATION
-   Adds the "scrolled" class after the visitor scrolls down.
+   Adds a background after scrolling.
    ========================================================= */
 
 const nav = document.getElementById("nav");
 
-if (nav) {
-  const updateNav = () => {
-    nav.classList.toggle("scrolled", window.scrollY > 60);
-  };
+function updateNav() {
+  if (!nav) return;
 
-  updateNav();
-
-  window.addEventListener("scroll", updateNav, {
-    passive: true
-  });
+  nav.classList.toggle(
+    "scrolled",
+    window.scrollY > 60
+  );
 }
+
+updateNav();
+
+window.addEventListener(
+  "scroll",
+  updateNav,
+  { passive: true }
+);
 
 
 /* =========================================================
    REVEAL ANIMATIONS
-   Makes .reveal sections appear as guests scroll.
-   Includes a fallback so content is never permanently hidden.
+   Reveals sections as they enter the viewport.
+   Includes a fallback so content never stays hidden.
    ========================================================= */
 
-const revealElements = document.querySelectorAll(".reveal");
+const revealElements =
+  document.querySelectorAll(".reveal");
 
-if (revealElements.length) {
+if (revealElements.length > 0) {
 
   if ("IntersectionObserver" in window) {
 
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
 
-        entries.forEach((entry) => {
+          entries.forEach((entry) => {
 
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
+            if (entry.isIntersecting) {
 
-        });
+              entry.target.classList.add(
+                "visible"
+              );
 
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -20px 0px"
-      }
-    );
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.08,
+          rootMargin: "0px 0px -25px 0px"
+        }
+      );
+
 
     revealElements.forEach((element) => {
       revealObserver.observe(element);
@@ -67,34 +82,39 @@ if (revealElements.length) {
 
   }
 
+
   /*
      Safety fallback:
-     if the browser fails to trigger IntersectionObserver,
-     make all content visible after a short delay.
+     if anything prevents the observer
+     from activating, display the content.
   */
 
   window.setTimeout(() => {
 
     revealElements.forEach((element) => {
 
-      if (!element.classList.contains("visible")) {
-        element.classList.add("visible");
-      }
+      element.classList.add(
+        "visible"
+      );
 
     });
 
-  }, 1800);
+  }, 2000);
+
 }
 
 
 /* =========================================================
    WEDDING COUNTDOWN
    Saturday, October 17, 2026
-   5:00 PM Central Time
+   5:00 PM Central Daylight Time
    ========================================================= */
 
 const weddingDate =
-  new Date("2026-10-17T17:00:00-05:00").getTime();
+  new Date(
+    "2026-10-17T17:00:00-05:00"
+  ).getTime();
+
 
 const daysElement =
   document.getElementById("days");
@@ -111,6 +131,12 @@ const secondsElement =
 
 function updateCountdown() {
 
+  /*
+     If the countdown does not exist,
+     simply stop here without breaking
+     the rest of the website.
+  */
+
   if (
     !daysElement ||
     !hoursElement ||
@@ -120,52 +146,87 @@ function updateCountdown() {
     return;
   }
 
+
   const now = Date.now();
 
-  let distance = weddingDate - now;
+  let distance =
+    weddingDate - now;
 
-  if (distance < 0) {
-    distance = 0;
+
+  if (distance <= 0) {
+
+    daysElement.textContent = "0";
+    hoursElement.textContent = "0";
+    minutesElement.textContent = "0";
+    secondsElement.textContent = "0";
+
+    return;
   }
 
+
   const days =
-    Math.floor(distance / (1000 * 60 * 60 * 24));
+    Math.floor(
+      distance /
+      (1000 * 60 * 60 * 24)
+    );
+
 
   const hours =
     Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) /
+      (
+        distance %
+        (1000 * 60 * 60 * 24)
+      ) /
       (1000 * 60 * 60)
     );
 
+
   const minutes =
     Math.floor(
-      (distance % (1000 * 60 * 60)) /
+      (
+        distance %
+        (1000 * 60 * 60)
+      ) /
       (1000 * 60)
     );
 
+
   const seconds =
     Math.floor(
-      (distance % (1000 * 60)) /
+      (
+        distance %
+        (1000 * 60)
+      ) /
       1000
     );
 
 
-  daysElement.textContent = days;
-  hoursElement.textContent = hours;
-  minutesElement.textContent = minutes;
-  secondsElement.textContent = seconds;
+  daysElement.textContent =
+    days;
+
+  hoursElement.textContent =
+    hours;
+
+  minutesElement.textContent =
+    minutes;
+
+  secondsElement.textContent =
+    seconds;
+
 }
 
 
 updateCountdown();
 
-const countdownTimer =
-  window.setInterval(updateCountdown, 1000);
+window.setInterval(
+  updateCountdown,
+  1000
+);
 
 
 /* =========================================================
    HERO MUSIC
-   Music begins only after the guest clicks the button.
+   Background music begins only when the guest clicks.
    ========================================================= */
 
 const heroMusic =
@@ -178,6 +239,59 @@ const musicText =
   document.getElementById("musicText");
 
 
+function updateMusicButton(isPlaying) {
+
+  if (
+    !musicToggle ||
+    !musicText
+  ) {
+    return;
+  }
+
+
+  if (isPlaying) {
+
+    musicText.textContent =
+      "Music Off";
+
+    musicToggle.classList.add(
+      "playing"
+    );
+
+    musicToggle.setAttribute(
+      "aria-pressed",
+      "true"
+    );
+
+    musicToggle.setAttribute(
+      "aria-label",
+      "Turn wedding music off"
+    );
+
+  } else {
+
+    musicText.textContent =
+      "Music On";
+
+    musicToggle.classList.remove(
+      "playing"
+    );
+
+    musicToggle.setAttribute(
+      "aria-pressed",
+      "false"
+    );
+
+    musicToggle.setAttribute(
+      "aria-label",
+      "Turn wedding music on"
+    );
+
+  }
+
+}
+
+
 if (
   heroMusic &&
   musicToggle &&
@@ -186,58 +300,17 @@ if (
 
   heroMusic.volume = 0.35;
 
-
-  function setMusicButtonState(isPlaying) {
-
-    if (isPlaying) {
-
-      musicText.textContent =
-        "Music Off";
-
-      musicToggle.classList.add(
-        "playing"
-      );
-
-      musicToggle.setAttribute(
-        "aria-pressed",
-        "true"
-      );
-
-      musicToggle.setAttribute(
-        "aria-label",
-        "Turn wedding music off"
-      );
-
-    } else {
-
-      musicText.textContent =
-        "Music On";
-
-      musicToggle.classList.remove(
-        "playing"
-      );
-
-      musicToggle.setAttribute(
-        "aria-pressed",
-        "false"
-      );
-
-      musicToggle.setAttribute(
-        "aria-label",
-        "Turn wedding music on"
-      );
-
-    }
-
-  }
-
-
-  setMusicButtonState(false);
+  updateMusicButton(false);
 
 
   musicToggle.addEventListener(
     "click",
     async () => {
+
+      /*
+         If music is currently paused,
+         attempt to start it.
+      */
 
       if (heroMusic.paused) {
 
@@ -245,37 +318,30 @@ if (
 
           await heroMusic.play();
 
-          setMusicButtonState(true);
+          updateMusicButton(true);
 
         } catch (error) {
 
-          console.error(
-            "Wedding music could not start:",
+          console.warn(
+            "Wedding music could not begin:",
             error
           );
 
-          setMusicButtonState(false);
+          updateMusicButton(false);
 
         }
 
       } else {
 
+        /*
+           Music is currently playing,
+           so pause it.
+        */
+
         heroMusic.pause();
 
-        setMusicButtonState(false);
+        updateMusicButton(false);
 
-      }
-
-    }
-  );
-
-
-  heroMusic.addEventListener(
-    "pause",
-    () => {
-
-      if (!heroMusic.ended) {
-        setMusicButtonState(false);
       }
 
     }
@@ -285,7 +351,23 @@ if (
   heroMusic.addEventListener(
     "play",
     () => {
-      setMusicButtonState(true);
+      updateMusicButton(true);
+    }
+  );
+
+
+  heroMusic.addEventListener(
+    "pause",
+    () => {
+      updateMusicButton(false);
+    }
+  );
+
+
+  heroMusic.addEventListener(
+    "ended",
+    () => {
+      updateMusicButton(false);
     }
   );
 
@@ -294,40 +376,76 @@ if (
 
 /* =========================================================
    JAZZ PLAYER
-   Prevents the hero music and jazz player from competing.
-   If the guest starts the visible jazz recording,
-   the hero background music pauses.
+   Pauses hero music when the visible jazz player starts.
    ========================================================= */
 
-const jazzAudio =
-  document.querySelector(
-    ".jazz-track audio"
+const jazzPlayers =
+  document.querySelectorAll(
+    ".jazz-interlude audio"
   );
 
 
-if (jazzAudio && heroMusic) {
+jazzPlayers.forEach((player) => {
 
-  jazzAudio.addEventListener(
+  /*
+     Ignore the hero background audio
+     in case the selector ever changes.
+  */
+
+  if (player === heroMusic) {
+    return;
+  }
+
+
+  player.addEventListener(
     "play",
     () => {
 
-      if (!heroMusic.paused) {
+      /*
+         Pause hero background music.
+      */
+
+      if (
+        heroMusic &&
+        !heroMusic.paused
+      ) {
         heroMusic.pause();
       }
+
+
+      /*
+         Stop any other jazz/audio
+         player that may already be playing.
+      */
+
+      jazzPlayers.forEach(
+        (otherPlayer) => {
+
+          if (
+            otherPlayer !== player &&
+            !otherPlayer.paused
+          ) {
+            otherPlayer.pause();
+          }
+
+        }
+      );
 
     }
   );
 
-}
+});
 
 
 /* =========================================================
-   SMOOTH INTERNAL LINKS
-   Handles links such as #story, #details, #rsvp, etc.
+   SMOOTH INTERNAL PAGE LINKS
+   Handles #story, #details, #attire, etc.
    ========================================================= */
 
 const internalLinks =
-  document.querySelectorAll('a[href^="#"]');
+  document.querySelectorAll(
+    'a[href^="#"]'
+  );
 
 
 internalLinks.forEach((link) => {
@@ -336,37 +454,60 @@ internalLinks.forEach((link) => {
     "click",
     (event) => {
 
-      const targetId =
+      const href =
         link.getAttribute("href");
 
+
       if (
-        !targetId ||
-        targetId === "#"
+        !href ||
+        href === "#"
       ) {
         return;
       }
 
-      const target =
-        document.querySelector(targetId);
+
+      let target;
+
+      try {
+
+        target =
+          document.querySelector(href);
+
+      } catch (error) {
+
+        return;
+
+      }
+
 
       if (!target) {
         return;
       }
 
+
       event.preventDefault();
 
 
-      const navHeight =
-        nav ? nav.offsetHeight : 0;
+      /*
+         Compensate for the fixed navigation bar.
+      */
 
-      const targetPosition =
-        target.getBoundingClientRect().top +
-        window.scrollY -
+      const navHeight =
+        nav
+          ? nav.offsetHeight
+          : 0;
+
+
+      const targetTop =
+        target
+          .getBoundingClientRect()
+          .top +
+        window.pageYOffset -
         navHeight;
 
 
       window.scrollTo({
-        top: targetPosition,
+        top: targetTop,
         behavior: "smooth"
       });
 
@@ -377,66 +518,22 @@ internalLinks.forEach((link) => {
 
 
 /* =========================================================
-   OPTIONAL SCROLL CUE
-   Only runs if an element with .scroll-cue exists.
-   Your current site does not require this element.
+   HERO IMAGE LOAD SAFETY
+   Logs a warning if an image path is incorrect.
    ========================================================= */
 
-const scrollCue =
-  document.querySelector(".scroll-cue");
-
-
-if (scrollCue) {
-
-  const updateScrollCue = () => {
-
-    if (window.scrollY > 120) {
-
-      scrollCue.classList.add(
-        "hidden"
-      );
-
-    } else {
-
-      scrollCue.classList.remove(
-        "hidden"
-      );
-
-    }
-
-  };
-
-
-  updateScrollCue();
-
-  window.addEventListener(
-    "scroll",
-    updateScrollCue,
-    {
-      passive: true
-    }
-  );
-
-}
-
-
-/* =========================================================
-   IMAGE SAFETY
-   Keeps a missing image from breaking surrounding layout.
-   ========================================================= */
-
-const siteImages =
+const images =
   document.querySelectorAll("img");
 
 
-siteImages.forEach((image) => {
+images.forEach((image) => {
 
   image.addEventListener(
     "error",
     () => {
 
       console.warn(
-        "Image could not load:",
+        "Image failed to load:",
         image.getAttribute("src")
       );
 
@@ -447,36 +544,73 @@ siteImages.forEach((image) => {
 
 
 /* =========================================================
-   PAGE READY SAFETY
-   Ensures visible content after the page has loaded.
+   INITIAL PAGE LOAD
+   Ensures elements already visible on screen appear immediately.
    ========================================================= */
 
 window.addEventListener(
   "load",
   () => {
 
-    document
-      .querySelectorAll(".reveal")
-      .forEach((element) => {
+    /*
+       Update navigation state after
+       all assets finish loading.
+    */
 
-        /*
-           Elements already in the viewport
-           should be visible immediately.
-        */
+    updateNav();
 
-        const rect =
-          element.getBoundingClientRect();
 
-        if (
-          rect.top < window.innerHeight &&
-          rect.bottom > 0
-        ) {
-          element.classList.add(
-            "visible"
-          );
-        }
+    /*
+       Reveal anything already inside
+       the initial viewport.
+    */
 
-      });
+    revealElements.forEach((element) => {
+
+      const rect =
+        element.getBoundingClientRect();
+
+
+      if (
+        rect.top <
+        window.innerHeight &&
+        rect.bottom > 0
+      ) {
+
+        element.classList.add(
+          "visible"
+        );
+
+      }
+
+    });
+
+  }
+);
+
+
+/* =========================================================
+   WINDOW RESIZE
+   Keeps layout-dependent behavior stable.
+   ========================================================= */
+
+let resizeTimer;
+
+window.addEventListener(
+  "resize",
+  () => {
+
+    clearTimeout(
+      resizeTimer
+    );
+
+
+    resizeTimer =
+      setTimeout(() => {
+
+        updateNav();
+
+      }, 150);
 
   }
 );
