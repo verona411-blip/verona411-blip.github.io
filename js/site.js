@@ -1,3 +1,46 @@
+<script>
+  const heroMusic = document.getElementById("heroMusic");
+  const musicToggle = document.getElementById("musicToggle");
+  const musicText = document.getElementById("musicText");
+
+  // Comfortable background volume
+  heroMusic.volume = 0.35;
+
+  musicToggle.addEventListener("click", async function () {
+
+    if (heroMusic.paused) {
+
+      try {
+        await heroMusic.play();
+
+        musicText.textContent = "Music Off";
+        musicToggle.classList.add("playing");
+        musicToggle.setAttribute("aria-pressed", "true");
+        musicToggle.setAttribute(
+          "aria-label",
+          "Turn wedding music off"
+        );
+
+      } catch (error) {
+        console.log("Music could not start:", error);
+      }
+
+    } else {
+
+      heroMusic.pause();
+
+      musicText.textContent = "Music On";
+      musicToggle.classList.remove("playing");
+      musicToggle.setAttribute("aria-pressed", "false");
+      musicToggle.setAttribute(
+        "aria-label",
+        "Turn wedding music on"
+      );
+    }
+
+  });
+</script>
+
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
