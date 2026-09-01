@@ -3,21 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ===== SITE TITLE / SEARCH RESULT TITLE ===== -->
-  <title>Gary & Verona | A Night in New Orleans, 1926</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Gary & Verona | A Night in New Orleans, 1926
+  </title>
 
   <meta
     name="description"
     content="The wedding of Gary and Verona, October 17, 2026, at The Building in New Orleans."
   >
 
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- MAIN STYLESHEET -->
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  >
 </head>
 
 
 <body>
+
 
 <!-- =========================================================
      NAVIGATION
@@ -30,57 +40,97 @@
   </div>
 
   <div class="navlinks">
-    <a href="#story">Our Story</a>
-    <a href="#details">The Wedding</a>
-    <a href="#attire">Attire</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#travel">Travel</a>
-    <a href="#rsvp">RSVP</a>
+
+    <a href="#story">
+      Our Story
+    </a>
+
+    <a href="#details">
+      The Wedding
+    </a>
+
+    <a href="#attire">
+      Attire
+    </a>
+
+    <a href="#gallery">
+      Gallery
+    </a>
+
+    <a href="#travel">
+      Travel
+    </a>
+
+    <a href="#rsvp">
+      RSVP
+    </a>
+
   </div>
 
 </nav>
 
 
-<!-- =========================================================
-     HERO / HOME PAGE
 
-     Main photo:
-     images/hero.jpg
+<!-- =========================================================
+     HERO
      ========================================================= -->
 
-<header class="hero">
+<header
+  class="hero"
+  id="home"
+>
 
-  <div class="deco-lines"></div>
-  <div class="pearl-strand"></div>
+
+  <!-- Decorative elements -->
+
+  <div
+    class="deco-lines"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="pearl-strand"
+    aria-hidden="true"
+  ></div>
 
 
-  <!-- ===== HERO COPY ===== -->
+
+  <!-- HERO COPY -->
 
   <div class="hero-copy reveal">
 
+
     <div class="monogram">
-      <span>G&amp;V</span>
+      <span>
+        G&amp;V
+      </span>
     </div>
+
 
     <div class="eyebrow">
       A Night in New Orleans, 1926
     </div>
 
+
     <h1>
-      Gary <em>&</em><br>
+      Gary <em>&amp;</em><br>
       Verona
     </h1>
+
 
     <p class="subtitle">
       Love, jazz, legacy, and a little sparkle.
     </p>
 
+
     <p class="date">
-      Saturday, October 17, 2026 · Five o’clock in the evening
+      Saturday, October 17, 2026
+      · Five o’clock in the evening
     </p>
 
 
     <div class="actions">
+
 
       <a
         class="button primary"
@@ -89,6 +139,7 @@
         RSVP
       </a>
 
+
       <a
         class="button"
         href="#details"
@@ -96,37 +147,29 @@
         Wedding Details
       </a>
 
-      <!-- ===== SCROLL TO BEGIN ===== -->
 
       <a
-        class="button primary"
+        class="button"
         href="#jazz"
-        aria-label="Scroll down to listen to New Orleans jazz"
       >
-
-        <span class="scroll-label">
-          Scroll to Begin
-        </span>
-
-        <span
-          class="scroll-arrow"
-          aria-hidden="true"
-        >
-          <span></span>
-        </span>
-
+        Scroll to Begin
       </a>
+
 
     </div>
 
   </div>
 
 
-  <!-- ===== HERO PHOTO ===== -->
+
+  <!-- HERO PHOTO -->
 
   <div class="hero-photo">
 
-    <div class="hero-frame"></div>
+    <div
+      class="hero-frame"
+      aria-hidden="true"
+    ></div>
 
     <img
       src="images/hero.jpg"
@@ -136,14 +179,15 @@
   </div>
 
 
-  <!-- =========================================================
-       HERO MUSIC CONTROL
-       ========================================================= -->
+
+  <!-- =====================================================
+       HERO MUSIC
+       ===================================================== -->
 
   <audio
     id="heroMusic"
     loop
-    preload="auto"
+    preload="none"
   >
 
     <source
@@ -164,7 +208,10 @@
     aria-pressed="false"
   >
 
-    <span class="music-icon">
+    <span
+      class="music-icon"
+      aria-hidden="true"
+    >
       ♫
     </span>
 
@@ -174,7 +221,9 @@
 
   </button>
 
+
 </header>
+
 
 
 <!-- =========================================================
@@ -188,23 +237,30 @@
 
   <div class="jazz-inner reveal">
 
+
     <div class="small">
       Set the Mood
     </div>
+
 
     <h2>
       Listen to New Orleans
     </h2>
 
+
     <p class="jazz-intro">
       Step into the sound of another era.
-      A little New Orleans jazz to accompany your journey through our story.
+      A little New Orleans jazz to accompany
+      your journey through our story.
     </p>
+
 
 
     <div class="jazz-player">
 
+
       <div class="jazz-track">
+
 
         <span class="track-era">
           1923
@@ -218,7 +274,8 @@
           </h3>
 
           <p>
-            King Oliver’s Creole Jazz Band · featuring Louis Armstrong
+            King Oliver’s Creole Jazz Band
+            · featuring Louis Armstrong
           </p>
 
         </div>
@@ -238,6 +295,7 @@
 
         </audio>
 
+
       </div>
 
     </div>
@@ -248,16 +306,15 @@
       Public-domain recordings via Wikimedia Commons.
     </p>
 
+
   </div>
 
 </section>
 
 
+
 <!-- =========================================================
      OUR STORY
-
-     Story photo:
-     images/our-story2.jpg
      ========================================================= -->
 
 <section
@@ -268,7 +325,8 @@
   <div class="wrap story-grid">
 
 
-    <!-- ===== STORY IMAGE ===== -->
+
+    <!-- STORY IMAGE -->
 
     <div class="story-image reveal">
 
@@ -280,59 +338,55 @@
     </div>
 
 
-    <!-- ===== STORY COPY ===== -->
+
+    <!-- STORY COPY -->
 
     <div class="story-copy reveal">
 
+
       <div
         class="eyebrow"
-        style="color:var(--burgundy)"
+        style="color:var(--burgundy);"
       >
         Written in the Stars
       </div>
 
-      <h2
-        style="
-          font-size:clamp(2.7rem,5vw,4.5rem);
-          margin:.3em 0;
-        "
-      >
+
+      <h2 class="story-title">
         Our Story
       </h2>
 
-      <p
-        class="section-kicker"
-        style="
-          margin:0 0 24px;
-          text-align:left;
-        "
-      >
+
+      <p class="section-kicker story-kicker">
         Every great love begins with an unexpected conversation.
       </p>
 
 
       <p>
         Gary and I met while debating politics on social media.
-        I had a podcast, and Gary was an anonymous caller and listener
-        whose intellect immediately caught my attention.
-        I secretly hoped he would call in with one of his tough questions
-        because I wanted more time to engage with his vibe and conversation.
-        I was already feeling his mind, and that back-and-forth intellectual
-        banter made me want more.
+        I had a podcast, and Gary was an anonymous caller and
+        listener whose intellect immediately caught my attention.
+        I secretly hoped he would call in with one of his tough
+        questions because I wanted more time to engage with his
+        vibe and conversation.
+        I was already feeling his mind, and that back-and-forth
+        intellectual banter made me want more.
         It was incredibly charming and sexy to me.
       </p>
 
 
       <p>
         I made the first move.
-        At the time, I was raising my son, and Verona was busy raising
-        teenagers, working, and attending school.
+        At the time, I was raising my son, and Verona was busy
+        raising teenagers, working, and attending school.
         We both were simply trying to keep everything afloat.
         I was rather persistent.
-        I knew I needed to have her in my life from the very first deep
-        conversation that ended in giggles over the movie "Lincoln."
+        I knew I needed to have her in my life from the very first
+        deep conversation that ended in giggles over the movie
+        "Lincoln."
         I looked forward to connecting with her several times a day.
-        Eventually, I arranged for us to meet in Chicago for my birthday.
+        Eventually, I arranged for us to meet in Chicago for my
+        birthday.
         It was the best birthday because Verona was my special gift.
       </p>
 
@@ -344,17 +398,20 @@
 
 
       <p>
-        Years later, beneath the stars aboard the Creole Queen in New Orleans,
-        we said yes not only to a wedding, but to continue doing life together —
-        with love, laughter, legacy, family, culture, faith,
-        and limitless possibilities.
+        Years later, beneath the stars aboard the Creole Queen
+        in New Orleans, we said yes not only to a wedding,
+        but to continue doing life together —
+        with love, laughter, legacy, family, culture,
+        faith, and limitless possibilities.
       </p>
+
 
     </div>
 
   </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -364,7 +421,8 @@
 <section class="interlude">
 
   <blockquote>
-    “When I saw you, I fell in love, and you smiled because you knew.”
+    “When I saw you, I fell in love,
+    and you smiled because you knew.”
   </blockquote>
 
   <cite>
@@ -372,6 +430,7 @@
   </cite>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -385,11 +444,12 @@
 
   <div class="wrap">
 
+
     <div class="section-head reveal">
 
       <div
         class="small"
-        style="color:#edcf8e"
+        style="color:#edcf8e;"
       >
         The Main Event
       </div>
@@ -407,12 +467,13 @@
     </div>
 
 
+
     <div class="cards">
 
 
       <!-- CEREMONY -->
 
-      <div class="card reveal">
+      <article class="card reveal">
 
         <div class="label">
           Ceremony
@@ -430,12 +491,13 @@
           Our celebration begins at 5:00 p.m.
         </p>
 
-      </div>
+      </article>
+
 
 
       <!-- VENUE -->
 
-      <div class="card reveal">
+      <article class="card reveal">
 
         <div class="label">
           Venue
@@ -446,16 +508,18 @@
         </h3>
 
         <p>
-          1427 Oretha Castle Haley Boulevard<br>
+          1427 Oretha Castle Haley Boulevard
+          <br>
           New Orleans, Louisiana 70113
         </p>
 
-      </div>
+      </article>
+
 
 
       <!-- RECEPTION -->
 
-      <div class="card reveal">
+      <article class="card reveal">
 
         <div class="label">
           Reception
@@ -471,7 +535,8 @@
           and roaring 20s fun.
         </p>
 
-      </div>
+      </article>
+
 
     </div>
 
@@ -480,8 +545,9 @@
 </section>
 
 
+
 <!-- =========================================================
-     TRAVEL + HOTEL INFORMATION
+     TRAVEL & STAY
      ========================================================= -->
 
 <section
@@ -491,23 +557,31 @@
 
   <div class="wrap">
 
+
     <div class="section-head reveal">
+
 
       <div class="small">
         Come to New Orleans
       </div>
 
+
       <h2>
         Travel & Stay
       </h2>
 
+
       <p class="section-kicker">
-        Everything you need for a beautiful New Orleans weekend.
+        Everything you need for a beautiful
+        New Orleans weekend.
       </p>
+
 
       <div class="gold-rule"></div>
 
+
     </div>
+
 
 
     <div class="details-grid">
@@ -515,68 +589,91 @@
 
       <!-- GETTING HERE -->
 
-      <div class="panel reveal">
+      <article class="panel reveal">
+
 
         <h3>
           Getting Here
         </h3>
+
 
         <p>
           Guests traveling by air should use
           Louis Armstrong New Orleans International Airport.
         </p>
 
+
         <p>
-          <strong>Airport code:</strong> MSY
+          <strong>
+            Airport code:
+          </strong>
+          MSY
         </p>
+
 
 
         <h3>
           Staying Here
         </h3>
 
+
         <p>
-          <strong>
-            Guests can use short-term stay options like Airbnb,
-            Vrbo, or book with a hotel.
-          </strong>
+          Guests can use short-term stay options
+          like Airbnb, Vrbo, or book with a hotel.
         </p>
 
-      </div>
+
+      </article>
+
 
 
       <!-- HOTEL -->
 
-      <div class="panel reveal">
+      <article class="panel reveal">
+
 
         <h3>
           Preferred Hotel — St. Charles Inn
         </h3>
 
+
         <p>
           <strong>
-            3636 St. Charles Avenue<br>
+            3636 St. Charles Avenue
+            <br>
             New Orleans, Louisiana 70115
           </strong>
         </p>
 
+
         <p>
-          <strong>Phone:</strong>
+          <strong>
+            Phone:
+          </strong>
           504-899-8888
         </p>
 
+
         <p>
-          <strong>Distance to The Building:</strong>
+          <strong>
+            Distance to The Building:
+          </strong>
           approximately 2.5–3 miles,
-          generally about a 10–15 minute drive depending on traffic.
+          generally about a 10–15 minute drive
+          depending on traffic.
         </p>
+
 
 
         <div class="hotel-note">
 
+
           <p>
-            <strong>Please reserve early.</strong>
+            <strong>
+              Please reserve early.
+            </strong>
           </p>
+
 
           <p>
             We do not have a wedding room block or special group rate.
@@ -585,27 +682,31 @@
             as soon as possible.
           </p>
 
+
         </div>
 
 
-        <p style="margin-top:18px;">
-          The historic St. Charles streetcar runs along St. Charles Avenue
-          near the hotel and is a wonderful way to explore the city
-          during your stay.
+
+        <p class="hotel-streetcar-note">
+          The historic St. Charles streetcar runs along
+          St. Charles Avenue near the hotel and is a wonderful
+          way to explore the city during your stay.
         </p>
+
 
 
         <a
           class="button"
           href="https://www.stcharlesinn.com/"
           target="_blank"
-          rel="noopener"
-          style="margin-top:10px;"
+          rel="noopener noreferrer"
         >
           Hotel Reservations
         </a>
 
-      </div>
+
+      </article>
+
 
     </div>
 
@@ -614,8 +715,9 @@
 </section>
 
 
+
 <!-- =========================================================
-     RSVP — MICROSOFT FORM
+     RSVP
      ========================================================= -->
 
 <section
@@ -626,32 +728,42 @@
   <div class="wrap">
 
 
-    <!-- ===== RSVP HEADING ===== -->
+
+    <!-- RSVP HEADING -->
 
     <div class="rsvp-heading reveal">
+
 
       <div class="eyebrow">
         Kindly Reply
       </div>
 
+
       <h2>
         Will You Join Us?
       </h2>
 
+
       <p class="rsvp-intro">
         We would be honored to share this evening with you.
         Please complete your RSVP below by
-        <strong>September 30, 2026.</strong>
+        <strong>
+          September 30, 2026.
+        </strong>
       </p>
 
+
       <div class="gold-rule"></div>
+
 
     </div>
 
 
-    <!-- ===== MICROSOFT RSVP FORM ===== -->
+
+    <!-- MICROSOFT FORM -->
 
     <div class="rsvp-form-container reveal">
+
 
       <iframe
         class="rsvp-form"
@@ -661,47 +773,81 @@
         marginwidth="0"
         marginheight="0"
         allowfullscreen
-        webkitallowfullscreen
-        mozallowfullscreen
-        msallowfullscreen
       >
       </iframe>
 
+
     </div>
 
 
-    <!-- ===== COUNTDOWN ===== -->
+
+    <!-- COUNTDOWN -->
 
     <div
-      class="countdown"
+      class="countdown reveal"
       aria-label="Countdown to the wedding"
     >
 
-      <div class="countdown-item">
-        <strong id="days">0</strong>
-        <span>Days</span>
-      </div>
 
       <div class="countdown-item">
-        <strong id="hours">0</strong>
-        <span>Hours</span>
+
+        <strong id="days">
+          0
+        </strong>
+
+        <span>
+          Days
+        </span>
+
       </div>
 
-      <div class="countdown-item">
-        <strong id="minutes">0</strong>
-        <span>Minutes</span>
-      </div>
 
       <div class="countdown-item">
-        <strong id="seconds">0</strong>
-        <span>Seconds</span>
+
+        <strong id="hours">
+          0
+        </strong>
+
+        <span>
+          Hours
+        </span>
+
       </div>
+
+
+      <div class="countdown-item">
+
+        <strong id="minutes">
+          0
+        </strong>
+
+        <span>
+          Minutes
+        </span>
+
+      </div>
+
+
+      <div class="countdown-item">
+
+        <strong id="seconds">
+          0
+        </strong>
+
+        <span>
+          Seconds
+        </span>
+
+      </div>
+
 
     </div>
+
 
   </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -713,30 +859,42 @@
   id="attire"
 >
 
-  <div class="attire-header">
+
+  <!-- ATTIRE HEADER -->
+
+  <div class="attire-header reveal">
+
 
     <p class="attire-eyebrow">
       A NIGHT IN NEW ORLEANS, 1926
     </p>
 
+
     <h2 class="attire-title">
       Dress the Era
     </h2>
+
 
     <p class="attire-intro">
       Step into the romance, rhythm, and glamour of New Orleans
       in the 1920s and 1930s.
       Think vintage elegance with a modern touch.
-      Period-inspired attire is encouraged, but never required.
+      Period-inspired attire is encouraged,
+      but never required.
     </p>
+
 
   </div>
 
 
-  <div class="attire-content">
+
+  <!-- ATTIRE CONTENT -->
+
+  <div class="attire-content reveal">
 
 
     <div class="attire-image-wrap">
+
 
       <img
         src="images/Attire.jpg"
@@ -744,14 +902,18 @@
         class="attire-photo"
       >
 
+
       <div class="attire-image-label">
         1920s–1930s Inspiration
       </div>
 
+
     </div>
 
 
+
     <div class="attire-description">
+
 
       <p>
         Channel Harlem Renaissance glamour,
@@ -759,40 +921,58 @@
         and old New Orleans elegance.
       </p>
 
+
       <p>
         Think Cotton Club cool,
         New Orleans jazz sophistication,
         and timeless supper-club style.
       </p>
 
+
     </div>
+
 
   </div>
 
 
-  <div class="attire-note">
 
-    <span class="attire-star">
+  <!-- ATTIRE NOTE -->
+
+  <div class="attire-note reveal">
+
+
+    <span
+      class="attire-star"
+      aria-hidden="true"
+    >
       ✦
     </span>
 
+
     <p>
-      Think sophisticated vintage inspiration—polished,
-      celebratory, soulful,
+      Think sophisticated vintage inspiration—
+      polished, celebratory, soulful,
       and ready for an unforgettable New Orleans night.
     </p>
 
-    <span class="attire-star">
+
+    <span
+      class="attire-star"
+      aria-hidden="true"
+    >
       ✦
     </span>
 
+
   </div>
+
 
 </section>
 
 
+
 <!-- =========================================================
-     GALLERY
+     ENGAGEMENT GALLERY
      ========================================================= -->
 
 <section
@@ -802,68 +982,91 @@
 
   <div class="wrap">
 
+
     <div class="section-head reveal">
+
 
       <div
         class="small"
-        style="color:#edcf8e"
+        style="color:#edcf8e;"
       >
         A Glimpse of Us
       </div>
+
 
       <h2>
         Engagement Gallery
       </h2>
 
+
       <p class="section-kicker">
         Moments that led us here.
       </p>
 
+
       <div class="gold-rule"></div>
+
 
     </div>
 
 
+
     <div class="gallery">
 
+
       <figure class="tall reveal">
+
         <img
           src="images/hero.jpg"
           alt="Gary and Verona outdoors"
         >
+
       </figure>
 
 
+
       <figure class="wide reveal">
+
         <img
           src="images/engagement-03.png"
           alt="Gary and Verona by the lake"
         >
+
       </figure>
 
 
+
       <figure class="reveal">
+
         <img
           src="images/engagement-01.jpg"
           alt="Gary embracing Verona"
         >
+
       </figure>
 
 
+
       <figure class="reveal">
+
         <img
           src="images/engagement-02.jpg"
           alt="Gary and Verona in evening light"
         >
+
       </figure>
 
 
+
       <figure class="reveal">
+
         <img
           src="images/our-story.jpg"
           alt="Gary and Verona dressed in white"
         >
+
       </figure>
+
 
     </div>
 
@@ -872,9 +1075,9 @@
 </section>
 
 
+
 <!-- =========================================================
      WHILE YOU'RE IN NEW ORLEANS
-     October 14–19, 2026
      ========================================================= -->
 
 <section
@@ -885,20 +1088,24 @@
   <div class="wrap">
 
 
-    <!-- ===== SECTION HEADER ===== -->
+
+    <!-- SECTION HEADER -->
 
     <div class="section-head reveal">
 
+
       <div
         class="small"
-        style="color:#edcf8e"
+        style="color:#edcf8e;"
       >
         Make a Weekend of It
       </div>
 
+
       <h2>
         While You’re in New Orleans
       </h2>
+
 
       <p class="section-kicker">
         Come for the wedding.
@@ -906,20 +1113,15 @@
         and unmistakable spirit of New Orleans.
       </p>
 
+
       <div class="gold-rule"></div>
+
 
     </div>
 
 
-    <p
-      style="
-        max-width:820px;
-        margin:0 auto 55px;
-        text-align:center;
-        font-size:1.05rem;
-        color:#f3e6e9;
-      "
-    >
+
+    <p class="happenings-intro reveal">
       If you’re arriving early or staying a little longer,
       New Orleans has plenty happening during our wedding week.
       Here are a few experiences worth adding to your itinerary.
@@ -928,19 +1130,16 @@
     </p>
 
 
+
     <!-- =====================================================
-         DAYTIME EXPERIENCES
+         BY DAY
          ===================================================== -->
 
-    <div style="margin-bottom:65px;">
+    <div class="happenings-group">
 
 
-      <div
-        style="
-          text-align:center;
-          margin-bottom:32px;
-        "
-      >
+      <div class="happenings-heading reveal">
+
 
         <div
           class="eyebrow"
@@ -949,34 +1148,34 @@
           By Day
         </div>
 
-        <h3
-          style="
-            font-size:2.1rem;
-            font-weight:normal;
-            margin:.3rem 0;
-            color:#fff7ea;
-          "
-        >
+
+        <h3>
           Culture, Music & A Little Wandering
         </h3>
 
+
       </div>
+
 
 
       <div class="cards">
 
 
-        <!-- Crescent City Chamber Music Festival -->
 
-        <div class="card reveal">
+        <!-- CHAMBER MUSIC -->
+
+        <article class="card reveal">
+
 
           <div class="label">
             Thursday · October 15
           </div>
 
+
           <h3>
             Crescent City Chamber Music Festival
           </h3>
+
 
           <p>
             Enjoy one of the city’s October cultural traditions
@@ -984,25 +1183,34 @@
             in distinctive New Orleans settings.
           </p>
 
+
           <p>
-            <strong>Perfect for:</strong>
-            Guests looking for a relaxed cultural afternoon or evening.
+            <strong>
+              Perfect for:
+            </strong>
+            Guests looking for a relaxed cultural
+            afternoon or evening.
           </p>
 
-        </div>
+
+        </article>
 
 
-        <!-- NOLA Funk Fest -->
 
-        <div class="card reveal">
+        <!-- FUNK FEST -->
+
+        <article class="card reveal">
+
 
           <div class="label">
             Wedding Weekend
           </div>
 
+
           <h3>
             NOLA Funk Fest
           </h3>
+
 
           <p>
             Celebrate Louisiana’s extraordinary musical legacy
@@ -1010,67 +1218,83 @@
             and New Orleans rhythm in the heart of the city.
           </p>
 
+
           <p>
             Featured artists include New Orleans favorites
             and nationally known performers.
           </p>
 
+
           <p>
-            <strong>Perfect for:</strong>
+            <strong>
+              Perfect for:
+            </strong>
             Music lovers staying through the weekend.
           </p>
 
-        </div>
+
+        </article>
 
 
-        <!-- French Market -->
 
-        <div class="card reveal">
+        <!-- SOULFUL SATURDAYS -->
+
+        <article class="card reveal">
+
 
           <div class="label">
             Saturday · October 17 · 2–3 PM
           </div>
 
+
           <h3>
             Soulful Saturdays
           </h3>
 
-          <p>
-            Stop by the French Market for a free afternoon performance
-            featuring Grammy-nominated New Orleans vocalist
-            Alicia Renee, also known as Blue Eyes.
-          </p>
 
           <p>
-            <strong>Location:</strong>
+            Stop by the French Market for a free afternoon
+            performance featuring Grammy-nominated
+            New Orleans vocalist Alicia Renee,
+            also known as Blue Eyes.
+          </p>
+
+
+          <p>
+            <strong>
+              Location:
+            </strong>
             French Market Farmers Market
           </p>
 
+
           <p>
-            <strong>Cost:</strong>
+            <strong>
+              Cost:
+            </strong>
             Free
           </p>
 
-        </div>
+
+        </article>
+
 
       </div>
+
 
     </div>
 
 
+
     <!-- =====================================================
-         EVENING EXPERIENCES
+         AFTER DARK
          ===================================================== -->
 
-    <div>
+    <div class="happenings-group">
 
 
-      <div
-        style="
-          text-align:center;
-          margin-bottom:32px;
-        "
-      >
+      <div class="happenings-heading reveal">
+
 
         <div
           class="eyebrow"
@@ -1079,59 +1303,68 @@
           After Dark
         </div>
 
-        <h3
-          style="
-            font-size:2.1rem;
-            font-weight:normal;
-            margin:.3rem 0;
-            color:#fff7ea;
-          "
-        >
+
+        <h3>
           Jazz, Cocktails & New Orleans Nights
         </h3>
 
+
       </div>
+
 
 
       <div class="cards">
 
 
-        <!-- Ghosts in the Oaks -->
 
-        <div class="card reveal">
+        <!-- GHOSTS -->
+
+        <article class="card reveal">
+
 
           <div class="label">
             Beginning October 15
           </div>
 
+
           <h3>
             Ghosts in the Oaks
           </h3>
+
 
           <p>
             City Park takes on an autumn-after-dark atmosphere
             during this seasonal New Orleans tradition.
           </p>
 
+
           <p>
-            <strong>Perfect for:</strong>
-            Guests wanting something festive and uniquely October.
+            <strong>
+              Perfect for:
+            </strong>
+            Guests wanting something festive
+            and uniquely October.
           </p>
 
-        </div>
+
+        </article>
 
 
-        <!-- Frenchmen Street -->
 
-        <div class="card reveal">
+        <!-- FRENCHMEN STREET -->
+
+        <article class="card reveal">
+
 
           <div class="label">
             October 18–19
           </div>
 
+
           <h3>
             An Evening on Frenchmen Street
           </h3>
+
 
           <p>
             Spend an evening drifting between live-music rooms
@@ -1140,74 +1373,105 @@
             during the days immediately following the wedding.
           </p>
 
+
           <p>
-            <strong>Sunday:</strong>
+            <strong>
+              Sunday:
+            </strong>
             Afternoon and evening live music
           </p>
 
+
           <p>
-            <strong>Monday:</strong>
-            Live performances throughout the afternoon and evening
+            <strong>
+              Monday:
+            </strong>
+            Live performances throughout
+            the afternoon and evening
           </p>
 
-        </div>
+
+        </article>
 
 
-        <!-- Hot 8 Brass Band -->
 
-        <div class="card reveal">
+        <!-- HOT 8 -->
+
+        <article class="card reveal">
+
 
           <div class="label">
             Sunday · October 18 · 10:30 PM
           </div>
 
+
           <h3>
             Hot 8 Brass Band
           </h3>
 
-          <p>
-            Keep the celebration going with Grammy-winning
-            Hot 8 Brass Band at The Howlin’ Wolf.
-          </p>
 
           <p>
-            <strong>Perfect for:</strong>
+            Keep the celebration going with
+            Grammy-winning Hot 8 Brass Band
+            at The Howlin’ Wolf.
+          </p>
+
+
+          <p>
+            <strong>
+              Perfect for:
+            </strong>
             Adults who want one more real New Orleans night
             before heading home.
           </p>
 
-        </div>
+
+        </article>
+
 
       </div>
 
+
     </div>
+
 
   </div>
 
 </section>
 
 
+
 <!-- =========================================================
-     CLOSING MESSAGE
+     CLOSING
      ========================================================= -->
 
 <section class="closing">
 
   <div class="closing-inner reveal">
 
+
     <p>
       “The best stories are the ones shared together.
       We cannot wait to celebrate ours with you.”
     </p>
 
+
     <div class="closing-signature">
-      With love,<br>
-      <strong>Gary &amp; Verona</strong>
+
+      With love,
+      <br>
+
+      <strong>
+        Gary &amp; Verona
+      </strong>
+
     </div>
+
 
   </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1216,95 +1480,40 @@
 
 <footer>
 
+
   <div class="footer-monogram">
-    <span>G&amp;V</span>
+
+    <span>
+      G&amp;V
+    </span>
+
   </div>
 
-  Gary & Verona · October 17, 2026 · New Orleans, Louisiana
-  <br>
-  A Night in New Orleans, 1926
+
+  <p>
+    Gary &amp; Verona
+    · October 17, 2026
+    · New Orleans, Louisiana
+  </p>
+
+
+  <p>
+    A Night in New Orleans, 1926
+  </p>
+
 
 </footer>
 
 
+
 <!-- =========================================================
-     EXISTING SITE JAVASCRIPT
+     WEBSITE JAVASCRIPT
+     IMPORTANT:
+     Do not put additional <script> code below this.
      ========================================================= -->
 
 <script src="js/site.js"></script>
 
 
-<!-- =========================================================
-     HERO MUSIC BUTTON JAVASCRIPT
-     ========================================================= -->
-
-<script>
-
-  const heroMusic = document.getElementById("heroMusic");
-  const musicToggle = document.getElementById("musicToggle");
-  const musicText = document.getElementById("musicText");
-
-  // Keep background music at a comfortable volume.
-  heroMusic.volume = 0.35;
-
-
-  musicToggle.addEventListener("click", async function () {
-
-    if (heroMusic.paused) {
-
-      try {
-
-        await heroMusic.play();
-
-        musicText.textContent = "Music Off";
-
-        musicToggle.classList.add("playing");
-
-        musicToggle.setAttribute(
-          "aria-pressed",
-          "true"
-        );
-
-        musicToggle.setAttribute(
-          "aria-label",
-          "Turn wedding music off"
-        );
-
-      }
-
-      catch (error) {
-
-        console.log(
-          "Music could not start:",
-          error
-        );
-
-      }
-
-    }
-
-    else {
-
-      heroMusic.pause();
-
-      musicText.textContent = "Music On";
-
-      musicToggle.classList.remove("playing");
-
-      musicToggle.setAttribute(
-        "aria-pressed",
-        "false"
-      );
-
-      musicToggle.setAttribute(
-        "aria-label",
-        "Turn wedding music on"
-      );
-
-    }
-
-  });
-
-<script src="js/site.js"></script>
 </body>
 </html>
