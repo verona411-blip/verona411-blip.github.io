@@ -147,10 +147,9 @@
 
 @media (prefers-reduced-motion: reduce){
 
-  .reveal{
-    opacity:1;
-    transform:none;
-    transition:none;
-  }
-
+.reveal{
+  opacity:1;
+  transform:none;
+  transition:opacity .75s ease,transform .75s ease;
 }
+
