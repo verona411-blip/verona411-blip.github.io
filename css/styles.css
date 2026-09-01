@@ -140,3 +140,17 @@
   }
 
 }
+/* =========================================================
+   REVEAL SAFETY
+   Keeps content accessible if JavaScript is delayed
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce){
+
+  .reveal{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+
+}
