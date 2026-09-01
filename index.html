@@ -147,6 +147,48 @@
         Wedding Details
       </a>
 
+      
+  <!-- =====================================================
+       HERO MUSIC
+       ===================================================== -->
+
+  <audio
+    id="heroMusic"
+    loop
+    preload="none"
+  >
+
+    <source
+      src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Dippermouth_Blues_-_KING_OLIVER%27S_JAZZ_BAND.flac"
+      type="audio/flac"
+    >
+
+    Your browser does not support audio playback.
+
+  </audio>
+
+  <button
+    id="musicToggle"
+    class="music-toggle"
+    type="button"
+    aria-label="Turn wedding music on"
+    aria-pressed="false"
+  >
+
+    <span
+      class="music-icon"
+      aria-hidden="true"
+    >
+      ♫
+    </span>
+
+    <span id="musicText">
+      Music On
+    </span>
+
+  </button>
+
+
 
       <a
         class="button"
@@ -178,48 +220,6 @@
 
   </div>
 
-
-
-  <!-- =====================================================
-       HERO MUSIC
-       ===================================================== -->
-
-  <audio
-    id="heroMusic"
-    loop
-    preload="none"
-  >
-
-    <source
-      src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Dippermouth_Blues_-_KING_OLIVER%27S_JAZZ_BAND.flac"
-      type="audio/flac"
-    >
-
-    Your browser does not support audio playback.
-
-  </audio>
-
-
-  <button
-    id="musicToggle"
-    class="music-toggle"
-    type="button"
-    aria-label="Turn wedding music on"
-    aria-pressed="false"
-  >
-
-    <span
-      class="music-icon"
-      aria-hidden="true"
-    >
-      ♫
-    </span>
-
-    <span id="musicText">
-      Music On
-    </span>
-
-  </button>
 
 
 </header>
