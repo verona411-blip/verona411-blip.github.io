@@ -148,8 +148,12 @@
 @media (prefers-reduced-motion: reduce){
 
 .reveal{
-  opacity:1;
-  transform:none;
+  opacity:0;
+  transform:translateY(24px);
   transition:opacity .75s ease,transform .75s ease;
 }
 
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
