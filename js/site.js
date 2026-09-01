@@ -1,144 +1,171 @@
 /* =========================================================
    GARY & VERONA WEDDING WEBSITE
-   SITE JAVASCRIPT
+   MASTER SITE JAVASCRIPT
    ========================================================= */
 
 
 /* =========================================================
    NAVIGATION
-   Change navigation styling after scrolling
+   Adds the "scrolled" class after the visitor scrolls down.
    ========================================================= */
 
 const nav = document.getElementById("nav");
 
 if (nav) {
-  window.addEventListener("scroll", function () {
+  const updateNav = () => {
     nav.classList.toggle("scrolled", window.scrollY > 60);
+  };
+
+  updateNav();
+
+  window.addEventListener("scroll", updateNav, {
+    passive: true
   });
 }
 
 
 /* =========================================================
    REVEAL ANIMATIONS
+   Makes .reveal sections appear as guests scroll.
+   Includes a fallback so content is never permanently hidden.
    ========================================================= */
 
 const revealElements = document.querySelectorAll(".reveal");
 
-if ("IntersectionObserver" in window) {
+if (revealElements.length) {
 
-  const observer = new IntersectionObserver(
-    function (entries) {
+  if ("IntersectionObserver" in window) {
 
-      entries.forEach(function (entry) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
 
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+        entries.forEach((entry) => {
 
-          /* Stop watching after it has appeared */
-          observer.unobserve(entry.target);
-        }
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
 
-      });
+        });
 
-    },
-    {
-      threshold: 0.12
-    }
-  );
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -20px 0px"
+      }
+    );
 
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
 
-  revealElements.forEach(function (element) {
-    observer.observe(element);
-  });
+  } else {
 
-} else {
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
 
-  /* Fallback for older browsers */
-  revealElements.forEach(function (element) {
-    element.classList.add("visible");
-  });
+  }
 
+  /*
+     Safety fallback:
+     if the browser fails to trigger IntersectionObserver,
+     make all content visible after a short delay.
+  */
+
+  window.setTimeout(() => {
+
+    revealElements.forEach((element) => {
+
+      if (!element.classList.contains("visible")) {
+        element.classList.add("visible");
+      }
+
+    });
+
+  }, 1800);
 }
 
 
 /* =========================================================
    WEDDING COUNTDOWN
-   October 17, 2026 · 5:00 PM
+   Saturday, October 17, 2026
+   5:00 PM Central Time
    ========================================================= */
 
 const weddingDate =
   new Date("2026-10-17T17:00:00-05:00").getTime();
 
+const daysElement =
+  document.getElementById("days");
+
+const hoursElement =
+  document.getElementById("hours");
+
+const minutesElement =
+  document.getElementById("minutes");
+
+const secondsElement =
+  document.getElementById("seconds");
+
 
 function updateCountdown() {
 
+  if (
+    !daysElement ||
+    !hoursElement ||
+    !minutesElement ||
+    !secondsElement
+  ) {
+    return;
+  }
+
   const now = Date.now();
 
-  const distance =
-    Math.max(0, weddingDate - now);
+  let distance = weddingDate - now;
 
+  if (distance < 0) {
+    distance = 0;
+  }
 
   const days =
-    Math.floor(distance / 86400000);
+    Math.floor(distance / (1000 * 60 * 60 * 24));
 
   const hours =
     Math.floor(
-      (distance % 86400000) / 3600000
+      (distance % (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
     );
 
   const minutes =
     Math.floor(
-      (distance % 3600000) / 60000
+      (distance % (1000 * 60 * 60)) /
+      (1000 * 60)
     );
 
   const seconds =
     Math.floor(
-      (distance % 60000) / 1000
+      (distance % (1000 * 60)) /
+      1000
     );
 
 
-  const daysElement =
-    document.getElementById("days");
-
-  const hoursElement =
-    document.getElementById("hours");
-
-  const minutesElement =
-    document.getElementById("minutes");
-
-  const secondsElement =
-    document.getElementById("seconds");
-
-
-  if (daysElement) {
-    daysElement.textContent = days;
-  }
-
-  if (hoursElement) {
-    hoursElement.textContent = hours;
-  }
-
-  if (minutesElement) {
-    minutesElement.textContent = minutes;
-  }
-
-  if (secondsElement) {
-    secondsElement.textContent = seconds;
-  }
-
+  daysElement.textContent = days;
+  hoursElement.textContent = hours;
+  minutesElement.textContent = minutes;
+  secondsElement.textContent = seconds;
 }
 
 
 updateCountdown();
 
-setInterval(
-  updateCountdown,
-  1000
-);
+const countdownTimer =
+  window.setInterval(updateCountdown, 1000);
 
 
 /* =========================================================
    HERO MUSIC
+   Music begins only after the guest clicks the button.
    ========================================================= */
 
 const heroMusic =
@@ -157,13 +184,60 @@ if (
   musicText
 ) {
 
-  /* Comfortable background volume */
   heroMusic.volume = 0.35;
+
+
+  function setMusicButtonState(isPlaying) {
+
+    if (isPlaying) {
+
+      musicText.textContent =
+        "Music Off";
+
+      musicToggle.classList.add(
+        "playing"
+      );
+
+      musicToggle.setAttribute(
+        "aria-pressed",
+        "true"
+      );
+
+      musicToggle.setAttribute(
+        "aria-label",
+        "Turn wedding music off"
+      );
+
+    } else {
+
+      musicText.textContent =
+        "Music On";
+
+      musicToggle.classList.remove(
+        "playing"
+      );
+
+      musicToggle.setAttribute(
+        "aria-pressed",
+        "false"
+      );
+
+      musicToggle.setAttribute(
+        "aria-label",
+        "Turn wedding music on"
+      );
+
+    }
+
+  }
+
+
+  setMusicButtonState(false);
 
 
   musicToggle.addEventListener(
     "click",
-    async function () {
+    async () => {
 
       if (heroMusic.paused) {
 
@@ -171,29 +245,16 @@ if (
 
           await heroMusic.play();
 
-          musicText.textContent =
-            "Music Off";
-
-          musicToggle.classList.add(
-            "playing"
-          );
-
-          musicToggle.setAttribute(
-            "aria-pressed",
-            "true"
-          );
-
-          musicToggle.setAttribute(
-            "aria-label",
-            "Turn wedding music off"
-          );
+          setMusicButtonState(true);
 
         } catch (error) {
 
-          console.log(
-            "Music could not start:",
+          console.error(
+            "Wedding music could not start:",
             error
           );
+
+          setMusicButtonState(false);
 
         }
 
@@ -201,23 +262,57 @@ if (
 
         heroMusic.pause();
 
-        musicText.textContent =
-          "Music On";
+        setMusicButtonState(false);
 
-        musicToggle.classList.remove(
-          "playing"
-        );
+      }
 
-        musicToggle.setAttribute(
-          "aria-pressed",
-          "false"
-        );
+    }
+  );
 
-        musicToggle.setAttribute(
-          "aria-label",
-          "Turn wedding music on"
-        );
 
+  heroMusic.addEventListener(
+    "pause",
+    () => {
+
+      if (!heroMusic.ended) {
+        setMusicButtonState(false);
+      }
+
+    }
+  );
+
+
+  heroMusic.addEventListener(
+    "play",
+    () => {
+      setMusicButtonState(true);
+    }
+  );
+
+}
+
+
+/* =========================================================
+   JAZZ PLAYER
+   Prevents the hero music and jazz player from competing.
+   If the guest starts the visible jazz recording,
+   the hero background music pauses.
+   ========================================================= */
+
+const jazzAudio =
+  document.querySelector(
+    ".jazz-track audio"
+  );
+
+
+if (jazzAudio && heroMusic) {
+
+  jazzAudio.addEventListener(
+    "play",
+    () => {
+
+      if (!heroMusic.paused) {
+        heroMusic.pause();
       }
 
     }
@@ -227,8 +322,64 @@ if (
 
 
 /* =========================================================
+   SMOOTH INTERNAL LINKS
+   Handles links such as #story, #details, #rsvp, etc.
+   ========================================================= */
+
+const internalLinks =
+  document.querySelectorAll('a[href^="#"]');
+
+
+internalLinks.forEach((link) => {
+
+  link.addEventListener(
+    "click",
+    (event) => {
+
+      const targetId =
+        link.getAttribute("href");
+
+      if (
+        !targetId ||
+        targetId === "#"
+      ) {
+        return;
+      }
+
+      const target =
+        document.querySelector(targetId);
+
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+
+
+      const navHeight =
+        nav ? nav.offsetHeight : 0;
+
+      const targetPosition =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        navHeight;
+
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+
+    }
+  );
+
+});
+
+
+/* =========================================================
    OPTIONAL SCROLL CUE
-   This only activates if .scroll-cue exists
+   Only runs if an element with .scroll-cue exists.
+   Your current site does not require this element.
    ========================================================= */
 
 const scrollCue =
@@ -237,25 +388,100 @@ const scrollCue =
 
 if (scrollCue) {
 
+  const updateScrollCue = () => {
+
+    if (window.scrollY > 120) {
+
+      scrollCue.classList.add(
+        "hidden"
+      );
+
+    } else {
+
+      scrollCue.classList.remove(
+        "hidden"
+      );
+
+    }
+
+  };
+
+
+  updateScrollCue();
+
   window.addEventListener(
     "scroll",
-    function () {
-
-      if (window.scrollY > 120) {
-
-        scrollCue.classList.add(
-          "hidden"
-        );
-
-      } else {
-
-        scrollCue.classList.remove(
-          "hidden"
-        );
-
-      }
-
+    updateScrollCue,
+    {
+      passive: true
     }
   );
 
 }
+
+
+/* =========================================================
+   IMAGE SAFETY
+   Keeps a missing image from breaking surrounding layout.
+   ========================================================= */
+
+const siteImages =
+  document.querySelectorAll("img");
+
+
+siteImages.forEach((image) => {
+
+  image.addEventListener(
+    "error",
+    () => {
+
+      console.warn(
+        "Image could not load:",
+        image.getAttribute("src")
+      );
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   PAGE READY SAFETY
+   Ensures visible content after the page has loaded.
+   ========================================================= */
+
+window.addEventListener(
+  "load",
+  () => {
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => {
+
+        /*
+           Elements already in the viewport
+           should be visible immediately.
+        */
+
+        const rect =
+          element.getBoundingClientRect();
+
+        if (
+          rect.top < window.innerHeight &&
+          rect.bottom > 0
+        ) {
+          element.classList.add(
+            "visible"
+          );
+        }
+
+      });
+
+  }
+);
+
+
+/* =========================================================
+   END OF SITE JAVASCRIPT
+   ========================================================= */
